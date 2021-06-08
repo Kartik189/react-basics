@@ -8,8 +8,11 @@
     src: url(./assets/economica-bold.ttf);
 }
 
-body{
+nav {
     text-align: center;
+}
+
+body{
     padding: 2.5%;
     font-family: 'RobotoCondensed';
     font-size: large;
