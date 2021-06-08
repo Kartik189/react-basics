@@ -15,9 +15,7 @@ class App extends Component {
         return(
             <div>
                 <Header />
-                <Home obj={data}>
-                    <p>Passing data as children</p>
-                </Home>
+                <Home obj={data}/>
             </div>   
         )
     }
