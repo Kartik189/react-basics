@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Home extends Component{
+class Home extends Component{
 
     state = {age: this.props.obj.age};
 
@@ -8,6 +8,10 @@ export default class Home extends Component{
         this.setState({
             age: this.state.age+1
         })
+    }
+
+    onchangeLink() {
+        this.props.changeLink("Changed Link");
     }
 
     render() {
@@ -22,8 +26,14 @@ export default class Home extends Component{
                         hobbies.map((hobby,i) => <li key={i}>{hobby}</li>)
                     }
                 </ul>
-                <button onClick={this.increaseAge}>Increase my Age!</button>
+                <button onClick={this.increaseAge} className="btn btn-primary">Increase my Age!</button>
+                <hr />
+                <button onClick={this.props.greet} className="btn btn-primary">Greet</button>
+                <hr />
+                <button onClick={this.onchangeLink.bind(this)} className="btn btn-primary">Change Home Link</button>
             </div>
         )
     }
 }
+
+export default Home;

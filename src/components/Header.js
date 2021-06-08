@@ -4,7 +4,7 @@ const Header = (props) => {
         return(
             <nav>
                 <div>
-                    <a href="#">Home</a>
+                    <a href="#">{props.link}</a>
                 </div>
             </nav>
         )

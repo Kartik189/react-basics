@@ -4,6 +4,18 @@ import Home from './Home'
 
 class App extends Component {
 
+    state={homeLink: "Home"};
+
+    onGreet() {
+        alert("Hello");
+    }
+
+    onLinkChange(newlink) {
+        this.setState({
+            homeLink: newlink
+        });
+    } 
+
     render() {
 
         var data={
@@ -14,8 +26,8 @@ class App extends Component {
 
         return(
             <div>
-                <Header />
-                <Home obj={data}/>
+                <Header link={this.state.homeLink}/>
+                <Home obj={data} greet={this.onGreet} changeLink={this.onLinkChange.bind(this)}/>
             </div>   
         )
     }
