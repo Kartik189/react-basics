@@ -27,7 +27,7 @@ class App extends Component {
         return(
             <div>
                 <Header link={this.state.homeLink}/>
-                <Home obj={data} greet={this.onGreet} changeLink={this.onLinkChange.bind(this)}/>
+                <Home obj={data} greet={this.onGreet} changeLink={this.onLinkChange.bind(this)} appLink={this.state.homeLink}/>
             </div>   
         )
     }

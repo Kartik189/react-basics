@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Home extends Component{
 
-    state = {age: this.props.obj.age};
+    state = {age: this.props.obj.age, link: this.props.appLink};
 
     increaseAge = () => {
         this.setState({
@@ -11,7 +11,7 @@ class Home extends Component{
     }
 
     onchangeLink() {
-        this.props.changeLink("Changed Link");
+        this.props.changeLink(this.state.link);
     }
 
     render() {
@@ -30,6 +30,7 @@ class Home extends Component{
                 <hr />
                 <button onClick={this.props.greet} className="btn btn-primary">Greet</button>
                 <hr />
+                <input value={this.state.link} onChange={(event) => this.setState({link:event.target.value})}></input>
                 <button onClick={this.onchangeLink.bind(this)} className="btn btn-primary">Change Home Link</button>
             </div>
         )
