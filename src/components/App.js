@@ -1,35 +1,31 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Home from './Home'
+import Home from './Home';
+import Root from './Root';
+import User from './User';
+
+import {Route , Switch } from 'react-router-dom';
 
 class App extends Component {
-
-    state={homeLink: "Home"};
-
-    onGreet() {
-        alert("Hello");
-    }
-
-    onLinkChange(newlink) {
-        this.setState({
-            homeLink: newlink
-        });
-    } 
-
     render() {
-
-        var data={
-            name: 'Kartik Sareen',
-            age: 21,
-            hobbies: ['playing Guitar' , 'cycling' , 'reading']
-        };
-
         return(
             <div>
-                <Header link={this.state.homeLink}/>
-                <Home obj={data} greet={this.onGreet} changeLink={this.onLinkChange.bind(this)} appLink={this.state.homeLink}/>
-            </div>   
-        )
+                <Switch>
+                    <Route path='/'>
+                        <Root>
+                            <Route exact path='/'>
+                                <Home />
+                            </Route>                            
+                            <Route path='/Home'>
+                                <Home />
+                            </Route>
+                            <Route path="/user/:id">
+                                <User />
+                            </Route>
+                        </Root>
+                    </Route>
+                </Switch>
+            </div>
+        );
     }
 }
 
